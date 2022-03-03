@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:blue_squad_app/coponnents/global_componnets.dart';
 import 'package:blue_squad_app/coponnents/static.dart';
+import 'package:blue_squad_app/network/end_point.dart';
 import 'package:blue_squad_app/screens/bnb_screen/main_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -90,6 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
       child: BlocConsumer<ShopLoginCubit, LoginStates>(
         listener: (context, state) {
           if (state is LoginSuccessState) {
+            TOKEN=state.userModel.user!.token!;
             Navigator.push(
               context,
               MaterialPageRoute(

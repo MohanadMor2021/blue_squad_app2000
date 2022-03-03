@@ -12,7 +12,7 @@ class ShopLoginCubit extends Cubit<LoginStates> {
 
   static ShopLoginCubit get(context) => BlocProvider.of(context);
 
-  late userdata userModel;
+   userdata? userModel;
 
   
   void userLogin({
@@ -41,7 +41,7 @@ class ShopLoginCubit extends Cubit<LoginStates> {
       //
       //   CacheHelper.putData(key: 'userToken', value: userModel.user!.token);
 
-        emit(LoginSuccessState());
+        emit(LoginSuccessState(userModel!));
       // } else
       //   {
       //     print(userModel.status);

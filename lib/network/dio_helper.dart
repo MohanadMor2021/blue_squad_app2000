@@ -28,13 +28,18 @@ class DioHelper {
   }
 
   static Future<Response> getData({
-     String? url,
+    required String url,
     String? token,
     Map<String, dynamic>? query,
   }) {
     return dio.get(
-      url!,
+      url,
       options: Options(
+        headers: {
+          'lang':'en',
+
+          'Authorization': 'Bearer $token'
+        },
 
       ),
       queryParameters: query,
